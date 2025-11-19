@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4602688748290404700}
   - component: {fileID: 4657276556749541343}
   m_Layer: 0
-  m_Name: character_berie
+  m_Name: personaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
