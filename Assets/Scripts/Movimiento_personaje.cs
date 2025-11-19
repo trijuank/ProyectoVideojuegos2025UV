@@ -35,7 +35,7 @@ public class Movimiento_personaje : MonoBehaviour
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
         }
         animator.SetFloat("Speed", Mathf.Abs(move));
-        animator.SetFloat("VeticalVelocity", rb2D.linearVelocity.y);
+        animator.SetFloat("VerticalVelocity", rb2D.linearVelocity.y);
         animator.SetBool("isGrounded", isGrounded);
     }
 
