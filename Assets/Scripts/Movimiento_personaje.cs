@@ -15,6 +15,10 @@ public class Movimiento_personaje : MonoBehaviour
     public float groundRadius = 0.1f;
     public LayerMask groundLayer;
     public TMP_Text textMonedas;
+    public AudioSource audioSource;
+    public AudioClip barrilClip;
+    public AudioClip monedaClip;
+    public AudioClip damageClip;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,6 +57,7 @@ public class Movimiento_personaje : MonoBehaviour
     {
         if (collision.transform.CompareTag("Moneda"))
         {
+            audioSource.PlayOneShot(monedaClip);
             Destroy(collision.gameObject);
             monedas++;
             textMonedas.text = monedas.ToString();
@@ -60,11 +65,13 @@ public class Movimiento_personaje : MonoBehaviour
 
         if (collision.transform.CompareTag("Lanzas"))
         {
+            audioSource.PlayOneShot(damageClip);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (collision.transform.CompareTag("Barril"))
         {
+            audioSource.PlayOneShot(barrilClip);
             Vector2 knockbackDir = (rb2D.position - (Vector2)collision.transform.position).normalized;
             rb2D.linearVelocity = Vector2.zero;
             rb2D.AddForce(knockbackDir * 3, ForceMode2D.Impulse);
