@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Movimiento_personaje : MonoBehaviour
@@ -6,11 +7,14 @@ public class Movimiento_personaje : MonoBehaviour
     private float move;
     private bool isGrounded;
     private Animator animator;
+    private int monedas;
     public float velocidad = 2;
     public float jumpForce = 4;
     public Transform groundCheck;
     public float groundRadius = 0.1f;
     public LayerMask groundLayer;
+    public TMP_Text textMonedas;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +46,16 @@ public class Movimiento_personaje : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Moneda"))
+        {
+            Destroy(collision.gameObject);
+            monedas++;
+            textMonedas.text = monedas.ToString();
+        } 
     }
     
 }
