@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Moneda
   - Lanzas
+  - Barril
   layers:
   - Default
   - TransparentFX
