@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Movimiento_personaje : MonoBehaviour
@@ -56,6 +57,11 @@ public class Movimiento_personaje : MonoBehaviour
             monedas++;
             textMonedas.text = monedas.ToString();
         } 
+
+        if (collision.transform.CompareTag("Lanzas"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
     
 }
