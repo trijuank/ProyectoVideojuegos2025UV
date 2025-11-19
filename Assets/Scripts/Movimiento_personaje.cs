@@ -74,7 +74,7 @@ public class Movimiento_personaje : MonoBehaviour
             audioSource.PlayOneShot(barrilClip);
             Vector2 knockbackDir = (rb2D.position - (Vector2)collision.transform.position).normalized;
             rb2D.linearVelocity = Vector2.zero;
-            rb2D.AddForce(knockbackDir * 3, ForceMode2D.Impulse);
+            rb2D.AddForce(knockbackDir * 5, ForceMode2D.Impulse);
 
             BoxCollider2D[] colliders = collision.gameObject.GetComponents<BoxCollider2D>();
 
@@ -87,5 +87,4 @@ public class Movimiento_personaje : MonoBehaviour
             Destroy(collision.gameObject, 0.5f);
         }
     }
-    
 }
