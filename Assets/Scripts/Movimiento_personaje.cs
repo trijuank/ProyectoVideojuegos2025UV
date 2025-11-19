@@ -5,6 +5,7 @@ public class Movimiento_personaje : MonoBehaviour
     private Rigidbody2D rb2D;
     private float move;
     private bool isGrounded;
+    private Animator animator;
     public float velocidad = 2;
     public float jumpForce = 4;
     public Transform groundCheck;
@@ -15,6 +16,7 @@ public class Movimiento_personaje : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,9 @@ public class Movimiento_personaje : MonoBehaviour
         {
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
         }
+        animator.SetFloat("Speed", Mathf.Abs(move));
+        animator.SetFloat("VeticalVelocity", rb2D.linearVelocity.y);
+        animator.SetBool("isGrounded", isGrounded);
     }
 
     private void FixedUpdate()
