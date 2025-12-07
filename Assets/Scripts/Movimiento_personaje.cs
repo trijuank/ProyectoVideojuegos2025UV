@@ -63,6 +63,12 @@ public class Movimiento_personaje : MonoBehaviour
             textMonedas.text = monedas.ToString();
         } 
 
+        if (collision.transform.CompareTag("ZonaMuerte"))
+        {
+            audioSource.PlayOneShot(damageClip);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } 
+
         if (collision.transform.CompareTag("Lanzas"))
         {
             audioSource.PlayOneShot(damageClip);
