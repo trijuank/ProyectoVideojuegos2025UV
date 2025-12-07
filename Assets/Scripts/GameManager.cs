@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
         if (gameOverActivo) return;
         gameOverActivo = true;
         if (gameOverPanel != null)
-        {
+        {   
+            Time.timeScale = 0f;
             gameOverPanel.SetActive(true);
         }
     }
