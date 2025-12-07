@@ -66,13 +66,20 @@ public class Movimiento_personaje : MonoBehaviour
         if (collision.transform.CompareTag("ZonaMuerte"))
         {
             audioSource.PlayOneShot(damageClip);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.GameOver();
+            }
         } 
 
         if (collision.transform.CompareTag("Lanzas"))
         {
             audioSource.PlayOneShot(damageClip);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.GameOver();
+            }
+            
         }
 
         if (collision.transform.CompareTag("Barril"))
