@@ -3717,6 +3717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017040078}
+  - component: {fileID: 2017040079}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3739,6 +3740,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2017040079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017040077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121b0f8604ac4ed4488b436395090b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  gameOverPanel: {fileID: 651569020}
+  textGameover: {fileID: 1892077202}
+  botonReiniciar: {fileID: 267689870}
+  botonSalir: {fileID: 1442814658}
 --- !u!1001 &5778344122991138848
 PrefabInstance:
   m_ObjectHideFlags: 0
