@@ -10,6 +10,7 @@ public class Movimiento_personaje : MonoBehaviour
     private Animator animator;
     private int monedas;
     private int vidas = 3;
+    private bool recibedamage;
     public float velocidad = 3;
     public float jumpForce = 6;
     public Transform groundCheck;
@@ -122,6 +123,12 @@ public class Movimiento_personaje : MonoBehaviour
         } 
 
         if (collision.transform.CompareTag("Lanzas"))
+        {
+            audioSource.PlayOneShot(damageClip);
+            PerderVida();
+        }
+
+        if (collision.transform.CompareTag("Enemigo"))
         {
             audioSource.PlayOneShot(damageClip);
             PerderVida();
