@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private bool gameOverActivo = false;
     public static GameManager Instance;
     public GameObject gameOverPanel;
+    public GameObject botonPausa;
     public TextMeshProUGUI textGameover;
     public Button botonReiniciar;
     public Button botonSalir;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         {   
             Time.timeScale = 0f;
             gameOverPanel.SetActive(true);
+            botonPausa.SetActive(false);
         }
     }
 
