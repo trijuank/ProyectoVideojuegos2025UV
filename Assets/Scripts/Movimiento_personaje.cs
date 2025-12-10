@@ -9,8 +9,8 @@ public class Movimiento_personaje : MonoBehaviour
     private bool isGrounded;
     private Animator animator;
     private int monedas;
-    public float velocidad = 2;
-    public float jumpForce = 4;
+    public float velocidad = 3;
+    public float jumpForce = 6;
     public Transform groundCheck;
     public float groundRadius = 0.1f;
     public LayerMask groundLayer;
@@ -87,7 +87,7 @@ public class Movimiento_personaje : MonoBehaviour
             audioSource.PlayOneShot(barrilClip);
             Vector2 knockbackDir = (rb2D.position - (Vector2)collision.transform.position).normalized;
             rb2D.linearVelocity = Vector2.zero;
-            rb2D.AddForce(knockbackDir * 5, ForceMode2D.Impulse);
+            rb2D.AddForce(knockbackDir * 8, ForceMode2D.Impulse);
 
             BoxCollider2D[] colliders = collision.gameObject.GetComponents<BoxCollider2D>();
 

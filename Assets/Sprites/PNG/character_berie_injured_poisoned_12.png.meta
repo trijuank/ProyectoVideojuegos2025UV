@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 41385456e605ac940a506b7215593439
+guid: 0c8c8766370f30346882cd24fa1cf35a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2492915498702640472
-    second: jump outline_0
+      213: -2320141212105491128
+    second: character_berie_injured_poisoned_12_0
+  - first:
+      213: -5270914094733269701
+    second: character_berie_injured_poisoned_12_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jump outline_0
+      name: character_berie_injured_poisoned_12_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 19
-        height: 36
+        width: 31
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8559c33207d989220800000000000000
-      internalID: 2492915498702640472
+      spriteID: 84d35b73cd33dcfd0800000000000000
+      internalID: -2320141212105491128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_berie_injured_poisoned_12_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b35e2ddae83f9d6b0800000000000000
+      internalID: -5270914094733269701
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      jump outline_0: 2492915498702640472
+      character_berie_injured_poisoned_12_0: -2320141212105491128
+      character_berie_injured_poisoned_12_1: -5270914094733269701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
