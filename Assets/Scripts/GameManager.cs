@@ -6,6 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     private bool gameOverActivo = false;
+    private bool ganasteActivo = false;
     public static GameManager Instance;
     public GameObject gameOverPanel;
     public GameObject botonPausa;
