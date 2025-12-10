@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3466879435475437628}
   - component: {fileID: 8980366659468921981}
   - component: {fileID: 5257629912968373252}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: trampa_lanzas
   m_TagString: Lanzas
   m_Icon: {fileID: 0}
