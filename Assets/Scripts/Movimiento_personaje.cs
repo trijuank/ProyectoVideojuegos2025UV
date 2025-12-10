@@ -10,9 +10,10 @@ public class Movimiento_personaje : MonoBehaviour
     private Animator animator;
     private int monedas;
     private int vidas = 3;
-    private bool recibedamage;
+    private bool recibeDamage;
     public float velocidad = 3;
     public float jumpForce = 6;
+    public float reboteForce = 5f;
     public Transform groundCheck;
     public float groundRadius = 0.1f;
     public LayerMask groundLayer;
@@ -24,8 +25,22 @@ public class Movimiento_personaje : MonoBehaviour
     public ParticleSystem particulaMove;
     public GameObject[] vidasUI;
     
+    public void RecibeDamage(Vector2 direccion)
+    {
+        if (!recibeDamage)
+        {
+            recibeDamage = true;
+            Vector2 rebote = new Vector2(transform.position.x - direccion.x, 1).normalized;
+            rb2D.AddForce(rebote * reboteForce, ForceMode2D.Impulse);
+        }
+    }
 
-    void CrearParticulasMove()
+    public void DesactiveDamage()
+    {
+        recibeDamage = false;
+    }
+
+    public void CrearParticulasMove()
     {
         if (Mathf.Abs(move) > 0.1f && isGrounded)
         {
@@ -43,12 +58,12 @@ public class Movimiento_personaje : MonoBehaviour
         }
     }
 
-    void DesactivarVidaUI(int indice)
+    public void DesactivarVidaUI(int indice)
     {
         vidasUI[indice].SetActive(false);
     }
 
-    void GameOverVidaUI(int indice)
+    public void GameOverVidaUI(int indice)
     {   
         for (int i = 0; i < indice; i++)
         {
@@ -56,7 +71,7 @@ public class Movimiento_personaje : MonoBehaviour
         }
     }
 
-    void PerderVida()
+    public void PerderVida()
     {   
         vidas -= 1;
         if (vidas == 0)
@@ -84,7 +99,7 @@ public class Movimiento_personaje : MonoBehaviour
         CrearParticulasMove();
         
         if (move != 0)
-        {
+        {   
             transform.localScale = new Vector3(Mathf.Sign(move), 1, 1);
         }
 
@@ -95,6 +110,7 @@ public class Movimiento_personaje : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(move));
         animator.SetFloat("VerticalVelocity", rb2D.linearVelocity.y);
         animator.SetBool("isGrounded", isGrounded);
+        animator.SetBool("recibeDamage", recibeDamage);
     }
 
     private void FixedUpdate()
@@ -121,18 +137,6 @@ public class Movimiento_personaje : MonoBehaviour
                 GameManager.Instance.GameOver();
             }
         } 
-
-        if (collision.transform.CompareTag("Lanzas"))
-        {
-            audioSource.PlayOneShot(damageClip);
-            PerderVida();
-        }
-
-        if (collision.transform.CompareTag("Enemigo"))
-        {
-            audioSource.PlayOneShot(damageClip);
-            PerderVida();
-        }
 
         if (collision.transform.CompareTag("Barril"))
         {
