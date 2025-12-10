@@ -19,7 +19,26 @@ public class Movimiento_personaje : MonoBehaviour
     public AudioClip barrilClip;
     public AudioClip monedaClip;
     public AudioClip damageClip;
+    public ParticleSystem particulaMove;
     
+
+    void CrearParticulasMove()
+    {
+        if (Mathf.Abs(move) > 0.1f && isGrounded)
+        {
+            if (!particulaMove.isPlaying)
+            {
+                particulaMove.Play();
+            }
+        }
+        else
+        {
+            if (particulaMove.isPlaying)
+            {
+                particulaMove.Stop();
+            }
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +52,7 @@ public class Movimiento_personaje : MonoBehaviour
     {
         move = Input.GetAxisRaw("Horizontal");
         rb2D.linearVelocity = new Vector2(move*velocidad, rb2D.linearVelocity.y);
+        CrearParticulasMove();
         
         if (move != 0)
         {
@@ -87,7 +107,7 @@ public class Movimiento_personaje : MonoBehaviour
             audioSource.PlayOneShot(barrilClip);
             Vector2 knockbackDir = (rb2D.position - (Vector2)collision.transform.position).normalized;
             rb2D.linearVelocity = Vector2.zero;
-            rb2D.AddForce(knockbackDir * 8, ForceMode2D.Impulse);
+            rb2D.AddForce(knockbackDir * 6, ForceMode2D.Impulse);
 
             BoxCollider2D[] colliders = collision.gameObject.GetComponents<BoxCollider2D>();
 
