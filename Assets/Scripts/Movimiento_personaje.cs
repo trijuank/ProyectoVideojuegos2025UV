@@ -9,7 +9,7 @@ public class Movimiento_personaje : MonoBehaviour
     private bool isGrounded;
     private Animator animator;
     private int monedas;
-    private int cantidadMonedas = 1;
+    private int cantidadMonedas = 7;
     private int vidas = 3;
     private bool recibeDamage;
     public float velocidad = 3;
