@@ -9,6 +9,7 @@ public class Movimiento_personaje : MonoBehaviour
     private bool isGrounded;
     private Animator animator;
     private int monedas;
+    private int vidas = 3;
     public float velocidad = 3;
     public float jumpForce = 6;
     public Transform groundCheck;
@@ -20,6 +21,7 @@ public class Movimiento_personaje : MonoBehaviour
     public AudioClip monedaClip;
     public AudioClip damageClip;
     public ParticleSystem particulaMove;
+    public GameObject[] vidasUI;
     
 
     void CrearParticulasMove()
@@ -38,6 +40,32 @@ public class Movimiento_personaje : MonoBehaviour
                 particulaMove.Stop();
             }
         }
+    }
+
+    void DesactivarVidaUI(int indice)
+    {
+        vidasUI[indice].SetActive(false);
+    }
+
+    void GameOverVidaUI(int indice)
+    {   
+        for (int i = 0; i < indice; i++)
+        {
+            vidasUI[i].SetActive(false);
+        }
+    }
+
+    void PerderVida()
+    {   
+        vidas -= 1;
+        if (vidas == 0)
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.GameOver();
+            }
+        }
+        DesactivarVidaUI(vidas);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -86,6 +114,7 @@ public class Movimiento_personaje : MonoBehaviour
         if (collision.transform.CompareTag("ZonaMuerte"))
         {
             audioSource.PlayOneShot(damageClip);
+            GameOverVidaUI(vidas);
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.GameOver();
@@ -95,11 +124,7 @@ public class Movimiento_personaje : MonoBehaviour
         if (collision.transform.CompareTag("Lanzas"))
         {
             audioSource.PlayOneShot(damageClip);
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.GameOver();
-            }
-            
+            PerderVida();
         }
 
         if (collision.transform.CompareTag("Barril"))

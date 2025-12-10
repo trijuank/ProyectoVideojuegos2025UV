@@ -8,6 +8,7 @@ TagManager:
   - Lanzas
   - Barril
   - ZonaMuerte
+  - Enemigo
   layers:
   - Default
   - TransparentFX
