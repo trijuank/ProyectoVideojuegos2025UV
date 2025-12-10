@@ -8,6 +8,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Salir()
     {
         Application.Quit();

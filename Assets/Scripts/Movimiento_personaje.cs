@@ -9,6 +9,7 @@ public class Movimiento_personaje : MonoBehaviour
     private bool isGrounded;
     private Animator animator;
     private int monedas;
+    private int cantidadMonedas = 1;
     private int vidas = 3;
     private bool recibeDamage;
     public float velocidad = 3;
@@ -154,6 +155,11 @@ public class Movimiento_personaje : MonoBehaviour
 
             collision.GetComponent<Animator>().enabled = true;
             Destroy(collision.gameObject, 0.5f);
+        }
+
+        if(monedas == cantidadMonedas)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
