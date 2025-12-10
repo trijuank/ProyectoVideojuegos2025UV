@@ -14284,6 +14284,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7878350319080214879}
     - target: {fileID: 4657276556749541343, guid: 0ef6493c18b6a24439ba24d444dfbeaf, type: 3}
+      propertyPath: reboteForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657276556749541343, guid: 0ef6493c18b6a24439ba24d444dfbeaf, type: 3}
       propertyPath: textMonedas
       value: 
       objectReference: {fileID: 757949056}
@@ -14321,11 +14325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6098888892566651598, guid: 0ef6493c18b6a24439ba24d444dfbeaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.83
+      value: 93.02
       objectReference: {fileID: 0}
     - target: {fileID: 6098888892566651598, guid: 0ef6493c18b6a24439ba24d444dfbeaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.11
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 6098888892566651598, guid: 0ef6493c18b6a24439ba24d444dfbeaf, type: 3}
       propertyPath: m_LocalPosition.z
