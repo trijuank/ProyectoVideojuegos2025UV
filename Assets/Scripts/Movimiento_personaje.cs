@@ -29,7 +29,8 @@ public class Movimiento_personaje : MonoBehaviour
     public void RecibeDamage(Vector2 direccion)
     {
         if (!recibeDamage)
-        {
+        {   
+            audioSource.PlayOneShot(damageClip);
             recibeDamage = true;
             Vector2 rebote = new Vector2(transform.position.x - direccion.x, 1).normalized;
             rb2D.AddForce(rebote * reboteForce, ForceMode2D.Impulse);
